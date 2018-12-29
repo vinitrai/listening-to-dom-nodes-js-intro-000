@@ -12,7 +12,7 @@ input.addEventListener('keydown', function(e) {
 });
 
 const input2 = document.querySelector('input')
- 
+
 input2.addEventListener('keydown', function(e) {
   if (e.key === "g") {
     return e.preventDefault()
@@ -21,12 +21,36 @@ input2.addEventListener('keydown', function(e) {
   }
 });
 let divs = document.querySelectorAll('div');
+
+function bubble(e) {
+
+  console.log(this.firstChild.nodeValue.trim() + ' bubbled');
+}
+
+for (let i = 0; i < divs.length; i++) {
+  divs[i].addEventListener('click', bubble);
+}
+
+const divs2 = document.querySelectorAll('div');
+ 
+function capture(e) {
+  console.log(this.firstChild.nodeValue.trim() + ' captured');
+}
+ 
+for (let i = 0; i < divs2.length; i++) {
+  
+  divs2[i].addEventListener('click', capture, true);
+}
+
+const divs3 = document.querySelectorAll('div');
  
 function bubble(e) {
   
+  e.stopPropagation();
+ 
   console.log(this.firstChild.nodeValue.trim() + ' bubbled');
 }
  
 for (let i = 0; i < divs.length; i++) {
-  divs[i].addEventListener('click', bubble);
+  divs3[i].addEventListener('click', bubble);
 }
