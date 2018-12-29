@@ -32,25 +32,25 @@ for (let i = 0; i < divs.length; i++) {
 }
 
 const divs2 = document.querySelectorAll('div');
- 
+
 function capture(e) {
   console.log(this.firstChild.nodeValue.trim() + ' captured');
 }
- 
+
 for (let i = 0; i < divs2.length; i++) {
-  
+
   divs2[i].addEventListener('click', capture, true);
 }
 
 const divs3 = document.querySelectorAll('div');
- 
+
 function bubble(e) {
-  
+
   e.stopPropagation();
- 
+
   console.log(this.firstChild.nodeValue.trim() + ' bubbled');
 }
- 
+
 for (let i = 0; i < divs.length; i++) {
   divs3[i].addEventListener('click', bubble);
 }
